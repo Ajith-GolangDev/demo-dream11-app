@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "f09fd1ab-1838-4983-8aec-1438002e2771",
+		"name": "dream11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23918548"
+	},
+	"item": [
+		{
+			"name": "load money",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loadmoney/1/100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loadmoney",
+						"1",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "load money",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/loadmoney/1/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loadmoney",
+								"1",
+								"100"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:12:18 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Money loaded successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "join contest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/joincontest/1/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"joincontest",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "join contest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/joincontest/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"joincontest",
+								"1",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:12:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Joined contest successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create team",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"contest_id\": 1,\n    \"player_ids\": \"1,1,1,1,1,1,1,23,23,23,23\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/createteam",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createteam"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create team",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"contest_id\": 1,\n    \"player_ids\": \"1,2,3,4,5,7,9,13,14,15,18\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/createteam",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createteam"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:11:25 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Team created successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"vk\",\n    \"email\": \"vk@gmail.com\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Arun\",\n    \"email\": \"arun@gmail.com\",\n    \"password\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:07:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"vk@gmail.com\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"arun@gmail.com\",\n    \"password\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:08:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login successful\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create contest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"grand league\",\n    \"entry_fee\": 30.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/create-contest",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-contest"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create contest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"master league\",\n    \"entry_fee\": 50.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/create-contest",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"create-contest"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:08:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "163"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 2,\n    \"CreatedAt\": \"2024-07-04T22:38:28.383088529+05:30\",\n    \"UpdatedAt\": \"2024-07-04T22:38:28.383088529+05:30\",\n    \"DeletedAt\": null,\n    \"name\": \"master league\",\n    \"entry_fee\": 50\n}"
+				}
+			]
+		},
+		{
+			"name": "create player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jadeja\",\n    \"team\": \"India\",\n    \"credit_score\": 8.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/create-player",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-player"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create player",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Harthick Pandya\",\n    \"team\": \"India\",\n    \"credit_score\": 8.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/create-player",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"create-player"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:09:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 28,\n    \"CreatedAt\": \"2024-07-04T22:39:01.868098918+05:30\",\n    \"UpdatedAt\": \"2024-07-04T22:39:01.868098918+05:30\",\n    \"DeletedAt\": null,\n    \"name\": \"Harthick Pandya\",\n    \"team\": \"India\",\n    \"credit_score\": 8\n}"
+				}
+			]
+		},
+		{
+			"name": "view team",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/viewteam/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viewteam",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "view team",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/viewteam/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"viewteam",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 04 Jul 2024 17:09:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1751"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2024-07-04T21:40:24.706033+05:30\",\n        \"UpdatedAt\": \"2024-07-04T21:40:24.706033+05:30\",\n        \"DeletedAt\": null,\n        \"name\": \"Virat Kholi\",\n        \"team\": \"India\",\n        \"credit_score\": 10\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2024-07-04T21:40:51.137259+05:30\",\n        \"UpdatedAt\": \"2024-07-04T21:40:51.137259+05:30\",\n        \"DeletedAt\": null,\n        \"name\": \"Rohit Sharma\",\n        \"team\": \"India\",\n        \"credit_score\": 10\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2024-07-04T21:41:09.982962+05:30\",\n        \"UpdatedAt\": \"2024-07-04T21:41:09.982962+05:30\",\n        \"DeletedAt\": null,\n        \"name\": \"Warner\",\n        \"team\": \"Australia\",\n        \"credit_score\": 10\n    },\n    {\n        \"ID\": 4,\n        \"CreatedAt\": \"2024-07-04T21:41:34.956087+05:30\",\n        \"UpdatedAt\": \"2024-07-04T21:41:34.956087+05:30\",\n        \"DeletedAt\": null,\n        \"name\": \"Dhoni\",\n        \"team\": \"India\",\n        \"credit_score\": 10\n    },\n    {\n        \"ID\": 5,\n        \"CreatedAt\": \"2024-07-04T21:41:45.642479+05:30\",\n        \"UpdatedAt\": \"2024-07-04T21:41:45.642479+05:30\",\n        \"DeletedAt\": null,\n        \"name\": \"Jadeja\",\n        \"team\": \"India\",\n        \"credit_score\": 8\n    },\n    {\n        \"ID\": 6,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Player1\",\n        \"team\": \"India\",\n        \"credit_score\": 7.5\n    },\n    {\n        \"ID\": 7,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Player2\",\n        \"team\": \"Australia\",\n        \"credit_score\": 8\n    },\n    {\n        \"ID\": 8,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Player3\",\n        \"team\": \"India\",\n        \"credit_score\": 6.5\n    },\n    {\n        \"ID\": 9,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Player4\",\n        \"team\": \"Australia\",\n        \"credit_score\": 9\n    },\n    {\n        \"ID\": 11,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Player6\",\n        \"team\": \"Australia\",\n        \"credit_score\": 8.8\n    },\n    {\n        \"ID\": 14,\n        \"CreatedAt\": \"0001-01-01T00:00:00Z\",\n        \"UpdatedAt\": \"0001-01-01T00:00:00Z\",\n        \"DeletedAt\": null,\n        \"name\": \"Player9\",\n        \"team\": \"India\",\n        \"credit_score\": 8.5\n    }\n]"
+				}
+			]
+		}
+	]
+}
