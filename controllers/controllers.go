@@ -4,7 +4,6 @@ import (
 	"dream_11/database"
 	"dream_11/models"
 	"errors"
-	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -137,6 +136,11 @@ func CreateTeam(c *gin.Context) {
 	}
 
 	playerIDs := strings.Split(userTeam.PlayerIDs, ",")
+	if len(playerIDs) != 11 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Please select exactly 11 players"})
+		return
+	}
+
 	var totalCreditScore float64
 	teamCount := make(map[string]int)
 
@@ -172,7 +176,6 @@ func CreateTeam(c *gin.Context) {
 	}
 
 	for _, count := range teamCount {
-		fmt.Println("count :", count)
 		if count > 7 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Cannot select more than 7 players from a single team"})
 			return
