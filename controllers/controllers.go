@@ -14,7 +14,6 @@ import (
 
 func Signup(c *gin.Context) {
 	var user models.User
-	// var players []models.Player
 
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -43,7 +42,6 @@ func Signup(c *gin.Context) {
 
 func Login(c *gin.Context) {
 	var user models.User
-	// var players []models.Player
 
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -112,7 +110,6 @@ func JoinContest(c *gin.Context) {
 // Create a new player
 func CreateTeam(c *gin.Context) {
 	var userTeam models.UserTeam
-	// var players []models.Player
 
 	if err := c.ShouldBindJSON(&userTeam); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

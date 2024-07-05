@@ -29,17 +29,6 @@ func ConnectDatabase() {
 
 	err = DB.AutoMigrate(&models.User{}, &models.Wallet{}, &models.Contest{}, &models.Player{}, &models.UserTeam{})
 	if err != nil {
-		panic("@@@@@@@@@@@@@@@@@@@@@@@2!")
+		panic("Failed to create the tables!")
 	}
-
 }
-
-// func DatabaseConnection() {
-// 	//connecting to postgres-SQL
-// 	connection := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", helper.Host, helper.Port, helper.User, helper.Password, helper.Dbname)
-// 	DB, err = gorm.Open(postgres.Open(connection), &gorm.Config{})
-// 	if err != nil {
-// 		panisc(err)
-// 	}
-// 	fmt.Printf("%s,database connection sucessfull\n", helper.Dbname)
-// }

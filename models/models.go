@@ -35,5 +35,5 @@ type UserTeam struct {
 	User      User    `gorm:"foreignKey:UserID"`
 	ContestID uint    `json:"contest_id" gorm:"not null;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 	Contest   Contest `gorm:"foreignKey:ContestID"`
-	PlayerIDs string  `json:"player_ids" gorm:"type:text;not null"` // Comma separated player IDs
+	PlayerIDs string  `json:"player_ids" gorm:"type:text;not null"` 
 }
