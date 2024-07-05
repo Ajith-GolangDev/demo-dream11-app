@@ -3,6 +3,7 @@ package controllers
 import (
 	"dream_11/database"
 	"dream_11/models"
+	"errors"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -14,28 +15,39 @@ import (
 
 func Signup(c *gin.Context) {
 	var user models.User
-
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	database.DB.Create(&user)
-
-	var userDetails models.User
-	if err := database.DB.Debug().Where("email=?", user.Email).Find(&userDetails); err != nil {
-		if err.Error == gorm.ErrRecordNotFound {
-			c.JSON(http.StatusUnauthorized, gin.H{"error ": err.Error})
-			return
-		}
+	// Check if the email already exists
+	var existingUser models.User
+	if err := database.DB.Where("email = ?", user.Email).First(&existingUser).Error; err == nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Email already registered"})
+		return
 	}
 
-	fmt.Println("user :", userDetails)
+	// Create the new user
+	if err := database.DB.Create(&user).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-	database.DB.Create(&models.Wallet{
+	// Retrieve user details to confirm creation
+	var userDetails models.User
+	if err := database.DB.Debug().Where("email = ?", user.Email).First(&userDetails).Error; err != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Create a wallet for the new user
+	if err := database.DB.Create(&models.Wallet{
 		UserID:  userDetails.ID,
 		Balance: 0,
-	})
+	}).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
 	c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
 }
@@ -49,18 +61,26 @@ func Login(c *gin.Context) {
 	}
 
 	var userDetails models.User
-	if err := database.DB.Find(&userDetails).Where("email=?", user.Email); err != nil {
-		if err.Error == gorm.ErrRecordNotFound {
-			c.JSON(http.StatusUnauthorized, gin.H{"error ": err.Error})
+	err := database.DB.Where("email = ?", user.Email).First(&userDetails).Error
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "Email does not exist"})
 			return
 		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Email does not exist"})
+		return
 	}
 
-	database.DB.Create(&user)
-	c.JSON(http.StatusOK, gin.H{"message": "Login successful"})
+	// Directly compare the provided password with the stored password
+	if userDetails.Password != user.Password {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid  password"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "Login successfully"})
 }
 
-//load money to the user wallet
+// load money to the user wallet
 func LoadMoney(c *gin.Context) {
 	var wallet models.Wallet
 	userID := c.Param("user_id")
@@ -79,7 +99,7 @@ func LoadMoney(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Money loaded successfully"})
 }
 
-//join a contest by contest-id
+// join a contest by contest-id
 func JoinContest(c *gin.Context) {
 	var wallet models.Wallet
 	var contest models.Contest
@@ -191,7 +211,7 @@ func CreateContest(c *gin.Context) {
 	c.JSON(http.StatusOK, contest)
 }
 
-//View team by team-id
+// View team by team-id
 func ViewTeam(c *gin.Context) {
 	var userTeam models.UserTeam
 	teamID := c.Param("team_id")
